@@ -1,4 +1,4 @@
-use minigrep::{run, Config};
+use minigrep::Config;
 use std::{env, process};
 
 fn main() {
@@ -18,7 +18,7 @@ fn main() {
 
     // if let does the same thing as the unwrap or else above, if there is an error, it does the
     // work in the brackets below, if no error occurs it returns what is in Result<>
-    if let Err(e) = run(config_params) {
+    if let Err(e) = minigrep::run(config_params) {
         println!("Application error: {e}");
         process::exit(1);
     }
