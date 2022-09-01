@@ -11,11 +11,6 @@ fn main() {
         process::exit(1);
     });
 
-    println!(
-        "Query string: '{}'\nFile path: '{}'",
-        config_params.query, config_params.file_path
-    );
-
     // if let does the same thing as the unwrap or else above, if there is an error, it does the
     // work in the brackets below, if no error occurs it returns what is in Result<>
     if let Err(e) = minigrep::run(config_params) {
