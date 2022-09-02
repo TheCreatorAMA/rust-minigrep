@@ -7,14 +7,14 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     let config_params = Config::build(&args).unwrap_or_else(|err| {
-        println!("Problem parsing arguments: {err}");
+        eprintln!("Problem parsing arguments: {err}");
         process::exit(1);
     });
 
     // if let does the same thing as the unwrap or else above, if there is an error, it does the
     // work in the brackets below, if no error occurs it returns what is in Result<>
     if let Err(e) = minigrep::run(config_params) {
-        println!("Application error: {e}");
+        eprintln!("Application error: {e}");
         process::exit(1);
     }
 }
